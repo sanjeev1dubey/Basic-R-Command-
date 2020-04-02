@@ -1,0 +1,32 @@
+
+Test 2 trial 2 sample 
+
+data:  Control and Treatt = -3.4456, df = 9.4797, p-value = 0.006782alternative hypothesis: true difference in means is not equal to 095 percent confidence interval: -21.194292  -4.472375sample estimates:mean of x mean of y  88.83333 101.66667 
+
+
+=======
+Liner regression
+
+NewspaperData.csv
+
+Nd<-NewspaperData
+# Visualization
+install.packages("lattice")
+library(lattice)
+dotplot(Nd$sunday, main="Dot Plot of Sunday Circulations",col="dodgerblue4")
+dotplot(Nd$daily, main="Dot Plot of Daily Circulations", col="dodgerblue4")
+boxplot(Nd$sunday,col="dodgerblue4")
+boxplot(Nd$daily,col="dodgerblue4")
+#Regression equation
+#Syntax  model<-lm(y~x,data=data set name)
+colnames(Nd)
+model<- lm(sunday~daily,data = Nd)
+summary(model)
+sun= 13.84 + (1.34*200)
+sun
+
+
+new<-data.frame(daily=c(200))
+pred<-predict(model,newdata = new) pred
+
+new<-data.frame(daily=c(200,350,240)) pred<-predict(model,newdata = new) pred 
